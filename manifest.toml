@@ -44,10 +44,10 @@ ram.runtime = "1G"
     [resources.sources]
 
     [resources.sources.main]
-    url = "https://github.com/Sync-in/server/releases/download/v1.2.2/sync-in-server.zip"
-    sha256 = "af88c696670679d090afd38da19215aa34192d5942d5a69cd25c2fc85181f549"
+    url = "https://github.com/Sync-in/server/archive/refs/tags/v1.2.2.tar.gz"
+    sha256 = "e319820923e59ed990f40d44cf4a629a794d360ed4925491153b8928e3e96fef"
 
-    # autoupdate.strategy = "latest_github_tag"
+    autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
     allow_email = true
