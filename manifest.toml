@@ -1,0 +1,68 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/main/schemas/manifest.v2.schema.json
+
+packaging_format = 2
+
+id = "sync-in"
+name = "Sync-in"
+description.en = "Platform for file storage, sharing, collaboration, and sync"
+description.fr = "Plateforme de stockage, de partage, de collaboration et de synchronisation de fichiers"
+
+version = "1.2.2~ynh1"
+
+maintainers = ["eric_G"]
+
+[upstream]
+license = "AGPL-3.0"
+website = "https://sync-in.com/"
+demo = "https://sync-in.com/docs/demo"
+admindoc = "https://sync-in.com/docs"
+code = "https://github.com/Sync-in/server"
+
+[integration]
+yunohost = ">= 12.0.9"
+helpers_version = "2.1"
+architectures = "all"
+multi_instance = true
+
+ldap = false
+sso = false
+
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+[resources]
+
+    [resources.sources]
+
+    [resources.sources.main]
+    url = "https://github.com/Sync-in/server/releases/download/v1.2.2/sync-in-server.zip"
+    sha256 = "af88c696670679d090afd38da19215aa34192d5942d5a69cd25c2fc85181f549"
+
+    # autoupdate.strategy = "latest_github_tag"
+
+    [resources.system_user]
+    allow_email = true
+    
+    [resources.install_dir]
+
+    [resources.data_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.ports]
+
+    [resources.apt]
+    packages = "mariadb-server, redis-server"
+
+    [resources.database]
+    type = "mysql"
