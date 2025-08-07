@@ -1,5 +1,5 @@
 [Unit]
-Description=Sync-in
+Description=Sync-in: platform for file storage
 After=network.target
 
 [Service]
