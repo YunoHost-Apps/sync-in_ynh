@@ -26,7 +26,7 @@ ynh_config_change_url_nginx
 # SPECIFIC MODIFICATIONS
 #=================================================
 
-## do any changes to files that reference specific installation domain/path, i.e. regenerate configs etc
+ynh_config_add --template="environment.yaml" --destination="$install_dir/environment.yaml"
 
 #=================================================
 # START SYSTEMD SERVICE

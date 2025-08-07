@@ -71,7 +71,7 @@ auth:
     # baseDN: distinguished name, e.g: (ou=people,dc=ldap,dc=sync-in,dc=com)
     baseDN: ou=users,dc=yunohost,dc=org
     # filter, e.g: (acl=admin)
-    filter: (&(objectclass=top)(memberUid=*))
+    filter: (&(|(objectclass=posixAccount))(uid={{username}})(permission=cn=__APP__.main,ou=permission,dc=yunohost,dc=org))
     # login attribute: uid (default) or mail
     loginAttribute: uid
 applications:

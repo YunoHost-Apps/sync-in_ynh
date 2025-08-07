@@ -5,7 +5,7 @@ packaging_format = 2
 id = "sync-in"
 name = "Sync-in"
 description.en = "Platform for file storage, sharing, collaboration, and sync"
-description.fr = "Plateforme de stockage, de partage, de collaboration et de synchronisation de fichiers"
+description.fr = "Plateforme de stockage, partage, collaboration et de synchronisation de fichiers"
 
 version = "1.2.2~ynh1"
 
@@ -27,9 +27,9 @@ multi_instance = true
 ldap = false
 sso = false
 
-disk = "50M"
-ram.build = "50M"
-ram.runtime = "50M"
+disk = "900M"
+ram.build = "1G"
+ram.runtime = "1G"
 
 [install]
     [install.domain]
