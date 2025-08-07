@@ -1,1 +1,1 @@
-Ceci est une fausse description des fonctionalités de l'app
+Sync-in est une plateforme open-source sécurisée pour le partage de fichiers, la synchronisation et la collaboration, conçue pour donner aux individus et aux organisations un contrôle total sur leurs données. Elle vous permet d'héberger votre propre espace de travail, où vous pouvez organiser, accéder et collaborer sur des fichiers, des notes et des documents avec votre équipe, vos amis ou simplement pour vous-même.
