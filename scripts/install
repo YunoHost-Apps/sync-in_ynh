@@ -26,7 +26,7 @@ ynh_nodejs_install
 ynh_script_progression "Setting up source files..."
 
 # Download, check integrity, uncompress and patch the source from manifest.toml
-ynh_setup_source --dest_dir="$install_dir"
+#ynh_setup_source --dest_dir="$install_dir"
 
 #=================================================
 # APP INITIAL CONFIGURATION
@@ -55,11 +55,11 @@ ynh_script_progression "Installing the app..."
 
 pushd "$install_dir"
 
-	#ynh_hide_warnings ynh_exec_as_app npm install @sync-in/server --prefix ./sync-in
+	ynh_hide_warnings ynh_exec_as_app npm install @sync-in/server --prefix ./sync-in
 
-	ynh_hide_warnings ynh_exec_as_app npm install
-	ynh_hide_warnings ynh_exec_as_app npm run build -ws
-	ynh_hide_warnings ynh_exec_as_app npm migrate-db
+	#ynh_hide_warnings ynh_exec_as_app npm install
+	#ynh_hide_warnings ynh_exec_as_app npm run build -ws
+	ynh_hide_warnings ynh_exec_as_app npm sync-in-server migrate-db
 popd
 
 #=================================================
