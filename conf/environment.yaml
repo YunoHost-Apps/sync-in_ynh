@@ -36,9 +36,9 @@ websocket:
   # redis adapter url
   redis: redis://127.0.0.1:6379
 mail:
-  host: "__DOMAIN__"
+  host: "__MAIN_DOMAIN__"
   port: 25
-  sender: 'Sync-in<notification@sync-in.com>'
+  sender: 'Sync-in<notification@__MAIN_DOMAIN__>'
   auth:
     user: "__APP__"
     pass: "__MAIL_PWD__"
