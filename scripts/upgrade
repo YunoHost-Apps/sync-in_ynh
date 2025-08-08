@@ -22,13 +22,6 @@ ynh_script_progression "Installing dependencies..."
 ynh_nodejs_install
 
 #=================================================
-# DOWNLOAD, CHECK AND UNPACK SOURCE
-#=================================================
-ynh_script_progression "Upgrading source files..."
-
-#ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="environment.yaml"
-
-#=================================================
 # UPDATE A CONFIG FILE
 #=================================================
 #ynh_script_progression "Updating $app's configuration files..."
@@ -54,7 +47,6 @@ ynh_config_add_logrotate
 ynh_script_progression "Installing the app..."
 
 pushd "$install_dir"
-	#ynh_hide_warnings ynh_exec_as_app npm install @sync-in/server #--prefix ./sync-in
 	ynh_hide_warnings ynh_exec_as_app npx sync-in-server update
 popd
 
