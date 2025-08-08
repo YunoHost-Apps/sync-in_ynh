@@ -56,13 +56,13 @@ auth:
     access:
       name: sync-in-access
       # used for token & cookie signatures
-      secret: changeAccessWithStrongSecret
+      secret: "__KEY__"
       expiration: 30m
       cookieMaxAge: 30m
     refresh:
       name: sync-in-refresh
       # used for token & cookie signatures
-      secret: changeRefreshWithStrongSecret
+      secret: "__KEY__"
       expiration: 4h
       cookieMaxAge: 4h
   ldap:

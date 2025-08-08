@@ -8,6 +8,12 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
+# INITIALIZE AND STORE SETTINGS
+#=================================================
+
+key=$(ynh_string_random)
+
+#=================================================
 # INSTALL DEPENDENCIES
 #=================================================
 ynh_script_progression "Installing dependencies..."
@@ -48,8 +54,12 @@ yunohost service add "$app" --description="Platform for file storage" --log="/va
 ynh_script_progression "Installing the app..."
 
 pushd "$install_dir"
+
+	#ynh_hide_warnings ynh_exec_as_app npm install @sync-in/server --prefix ./sync-in
+
 	ynh_hide_warnings ynh_exec_as_app npm install
 	ynh_hide_warnings ynh_exec_as_app npm run build -ws
+	ynh_hide_warnings ynh_exec_as_app npm migrate-db
 popd
 
 #=================================================
