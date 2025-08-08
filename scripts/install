@@ -60,6 +60,7 @@ ynh_script_progression "Installing the app..."
 pushd "$install_dir"
 	ynh_hide_warnings ynh_exec_as_app npm install @sync-in/server #--prefix ./sync-in
 	ynh_hide_warnings ynh_exec_as_app npx sync-in-server migrate-db
+	ynh_hide_warnings ynh_exec_as_app npx sync-in-server create-user --role admin --login "$admin" --password "$password"
 popd
 
 #=================================================
