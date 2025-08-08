@@ -8,19 +8,18 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
+# INITIALIZE AND STORE SETTINGS
+#=================================================
+
+key=$(ynh_string_random)
+ynh_app_setting_set --key=key --value=$key
+
+#=================================================
 # INSTALL DEPENDENCIES
 #=================================================
 ynh_script_progression "Installing dependencies..."
 
 ynh_nodejs_install
-
-#=================================================
-# DOWNLOAD, CHECK AND UNPACK SOURCE
-#=================================================
-ynh_script_progression "Setting up source files..."
-
-# Download, check integrity, uncompress and patch the source from manifest.toml
-ynh_setup_source --dest_dir="$install_dir"
 
 #=================================================
 # APP INITIAL CONFIGURATION
@@ -42,14 +41,18 @@ ynh_config_add_systemd
 
 yunohost service add "$app" --description="Platform for file storage" --log="/var/log/$app/$app.log"
 
+# Use logrotate to manage application logfile(s)
+ynh_config_add_logrotate
+
 #=================================================
 # INSTALL SYNC_IN
 #=================================================
 ynh_script_progression "Installing the app..."
 
 pushd "$install_dir"
-	ynh_hide_warnings ynh_exec_as_app npm install
-	#ynh_hide_warnings ynh_exec_as_app npm run build -ws
+	ynh_hide_warnings ynh_exec_as_app npm install @sync-in/server #--prefix ./sync-in
+	ynh_hide_warnings ynh_exec_as_app npx sync-in-server migrate-db
+	ynh_hide_warnings ynh_exec_as_app npx sync-in-server create-user --role admin --login "$admin" --password "$password"
 popd
 
 #=================================================

@@ -7,7 +7,7 @@ server:
   # regardless of the value, starts with at least 2 workers, 1 worker is dedicated to scheduled tasks
   workers: 4
   # trust proxy: true | false | 127.0.0.1,192.168.1.1/24
-  trustProxy: 127.0.0.1
+  trustProxy: true
   # restartOnFailure : automatically restart workers if they are killed or die
   restartOnFailure: true
 logger:
@@ -17,6 +17,7 @@ logger:
   stdout: true
   # colorize output
   colorize: true
+  filePath: /var/log/__APP__/__APP__.log
 mysql:
   url: mysql://__DB_USER__:__DB_PWD__@localhost:3306/__DB_NAME__
   logQueries: false
@@ -35,7 +36,7 @@ websocket:
   # redis adapter url
   redis: redis://127.0.0.1:6379
 mail:
-  host: "localhost"
+  host: "__DOMAIN__"
   port: 25
   sender: 'Sync-in<notification@sync-in.com>'
   auth:
@@ -56,13 +57,13 @@ auth:
     access:
       name: sync-in-access
       # used for token & cookie signatures
-      secret: changeAccessWithStrongSecret
+      secret: "__KEY__"
       expiration: 30m
       cookieMaxAge: 30m
     refresh:
       name: sync-in-refresh
       # used for token & cookie signatures
-      secret: changeRefreshWithStrongSecret
+      secret: "__KEY__"
       expiration: 4h
       cookieMaxAge: 4h
   ldap:
