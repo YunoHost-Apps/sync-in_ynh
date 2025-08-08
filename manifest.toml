@@ -48,14 +48,6 @@ ram.runtime = "1G"
 
 [resources]
 
-    #[resources.sources]
-
-    #[resources.sources.main]
-    #url = "https://github.com/Sync-in/server/archive/refs/tags/v1.3.0.tar.gz"
-    #sha256 = "4bf338033890d4c82a75c7622d5cc713d1475c517f25a07fe8fbf5d84cb4e19e"
-
-    #autoupdate.strategy = "latest_github_tag"
-
     [resources.system_user]
     allow_email = true
     
