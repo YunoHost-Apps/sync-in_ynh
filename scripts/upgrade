@@ -33,7 +33,7 @@ ynh_script_progression "Upgrading source files..."
 #=================================================
 #ynh_script_progression "Updating $app's configuration files..."
 
-ynh_config_add --template="environment.yaml" --destination="$install_dir/environment.yaml"
+#ynh_config_add --template="environment.yaml" --destination="$install_dir/environment.yaml"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATION
@@ -45,6 +45,8 @@ ynh_config_add_nginx
 ynh_config_add_systemd
 
 yunohost service add "$app" --description="Platform for file storage" --log="/var/log/$app/$app.log"
+
+ynh_config_add_logrotate
 
 #=================================================
 # INSTALL SYNC_IN

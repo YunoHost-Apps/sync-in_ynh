@@ -32,6 +32,16 @@ ynh_backup "/etc/nginx/conf.d/$domain.d/$app.conf"
 # Backup the systemd service unit
 ynh_backup "/etc/systemd/system/$app.service"
 
+# Backup the logrotate configuration
+ynh_backup "/etc/logrotate.d/$app"
+
+#=================================================
+# BACKUP VARIOUS FILES
+#=================================================
+
+# NB: /var/log is not backuped during safety-backup-before-upgrades, same as $data_dir
+ynh_backup "/var/log/$app/"
+
 #=================================================
 # BACKUP THE MYSQL DATABASE
 #=================================================

@@ -17,6 +17,7 @@ logger:
   stdout: true
   # colorize output
   colorize: true
+  filePath: /var/log/__APP__/__APP__.log
 mysql:
   url: mysql://__DB_USER__:__DB_PWD__@localhost:3306/__DB_NAME__
   logQueries: false
