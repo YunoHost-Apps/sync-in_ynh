@@ -22,20 +22,6 @@ ynh_script_progression "Installing dependencies..."
 ynh_nodejs_install
 
 #=================================================
-# DOWNLOAD, CHECK AND UNPACK SOURCE
-#=================================================
-ynh_script_progression "Upgrading source files..."
-
-ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="environment.yaml"
-
-#=================================================
-# UPDATE A CONFIG FILE
-#=================================================
-#ynh_script_progression "Updating $app's configuration files..."
-
-#ynh_config_add --template="environment.yaml" --destination="$install_dir/environment.yaml"
-
-#=================================================
 # REAPPLY SYSTEM CONFIGURATION
 #=================================================
 ynh_script_progression "Upgrading system configurations related to $app..."
@@ -46,13 +32,15 @@ ynh_config_add_systemd
 
 yunohost service add "$app" --description="Platform for file storage" --log="/var/log/$app/$app.log"
 
+ynh_config_add_logrotate
+
 #=================================================
 # INSTALL SYNC_IN
 #=================================================
 ynh_script_progression "Installing the app..."
 
 pushd "$install_dir"
-	ynh_hide_warnings ynh_exec_as_app npm install
+	ynh_hide_warnings ynh_exec_as_app npx sync-in-server update
 popd
 
 #=================================================

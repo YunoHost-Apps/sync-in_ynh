@@ -7,16 +7,17 @@ name = "Sync-in"
 description.en = "Platform for file storage, sharing, collaboration, and sync"
 description.fr = "Plateforme de stockage, partage, collaboration et de synchronisation de fichiers"
 
-version = "1.2.2~ynh1"
+version = "1.3.2~ynh1"
 
 maintainers = ["eric_G"]
 
 [upstream]
-license = "AGPL-3.0"
+license = "AGPL-3.0-or-later"
 website = "https://sync-in.com/"
 demo = "https://sync-in.com/docs/demo"
 admindoc = "https://sync-in.com/docs"
 code = "https://github.com/Sync-in/server"
+fund = "https://sync-in.com/support/"
 
 [integration]
 yunohost = ">= 12.0.9"
@@ -39,15 +40,21 @@ ram.runtime = "1G"
     type = "group"
     default = "visitors"
 
+    [install.admin]
+    type = "user"
+
+    [install.password]
+    type = "password"
+
 [resources]
 
-    [resources.sources]
+    #[resources.sources]
 
-    [resources.sources.main]
-    url = "https://github.com/Sync-in/server/releases/download/v1.2.2/sync-in-server.zip"
-    sha256 = "af88c696670679d090afd38da19215aa34192d5942d5a69cd25c2fc85181f549"
+    #[resources.sources.main]
+    #url = "https://github.com/Sync-in/server/archive/refs/tags/v1.3.0.tar.gz"
+    #sha256 = "4bf338033890d4c82a75c7622d5cc713d1475c517f25a07fe8fbf5d84cb4e19e"
 
-    # autoupdate.strategy = "latest_github_tag"
+    #autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
     allow_email = true
