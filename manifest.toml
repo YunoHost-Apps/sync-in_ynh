@@ -2,7 +2,7 @@
 
 packaging_format = 2
 
-id = "sync_in"
+id = "sync-in"
 name = "Sync-in"
 description.en = "Platform for file storage, sharing, collaboration, and sync"
 description.fr = "Plateforme de stockage, partage, collaboration et de synchronisation de fichiers"
