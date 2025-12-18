@@ -14,6 +14,8 @@ source /usr/share/yunohost/helpers
 key=$(ynh_string_random)
 ynh_app_setting_set --key=key --value=$key
 
+main_domain=$(cat /etc/yunohost/current_host)
+
 #=================================================
 # APP INITIAL CONFIGURATION
 #=================================================
