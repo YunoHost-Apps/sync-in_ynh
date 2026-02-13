@@ -69,7 +69,7 @@ ram.runtime = "1G"
     [resources.ports]
 
     [resources.apt]
-    packages = "mariadb-server"
+    packages = "mariadb-server, redis-server"
 
     [resources.database]
     type = "mysql"
