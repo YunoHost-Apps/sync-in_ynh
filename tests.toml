@@ -8,14 +8,7 @@ test_format = 1.0
     # Tests to run
     # ------------
 
-    # -------------------------------------------------------------------------------
-    # EVERYTHING PAST THIS POINT IS OPTIONAL AND MOST LIKELY UNNECESSARY FOR NEW APPS
-    #--------------------------------------------------------------------------------
-
-    # -------------------------------
-    # Default args to use for install
-    # -------------------------------
-
     # -------------------------------
     # Commits to test upgrade from
     # -------------------------------
+    test_upgrade_from.906bd89f4d55ec10b96f9c5a002cf8eb77e1bad7.name = "Upgrade from 1.3.2~ynh1"
