@@ -7,7 +7,7 @@ name = "Sync-in"
 description.en = "Platform for file storage, sharing, collaboration, and sync"
 description.fr = "Plateforme de stockage, partage, collaboration et de synchronisation de fichiers"
 
-version = "2.6.1~ynh1"
+version = "2.6.2~ynh1"
 
 maintainers = ["eric_G"]
 
@@ -51,8 +51,8 @@ ram.runtime = "1G"
     [resources.sources]
 
     [resources.sources.main]
-    url = "https://github.com/Sync-in/server/archive/refs/tags/v2.6.1.tar.gz"
-    sha256 = "e1b28cc5de03c0e8f05d5bea462c60a785e6c32322e0210a21c674c16961c8ef"
+    url = "https://github.com/Sync-in/server/archive/refs/tags/v2.6.2.tar.gz"
+    sha256 = "8eb24a95c7aa683f2e13c0f3ba3f63fd16c30a753768dceaa829eec277360117"
     autoupdate.strategy = "latest_github_tag"
     prefetch = false
 
